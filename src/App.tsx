@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import {TodoList} from './modules/Todo/TodoList';
 
 export default function App() {
   return (
     <View>
-      <Text>text</Text>
+      <TodoList />
     </View>
   );
 }

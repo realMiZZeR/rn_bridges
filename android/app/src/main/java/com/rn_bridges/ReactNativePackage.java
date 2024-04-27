@@ -7,6 +7,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.rn_bridges.TodoModule.TodoModule;
+import com.rn_bridges.UserModule.UserModule;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,6 +20,7 @@ public class ReactNativePackage implements ReactPackage {
         List<NativeModule> modules = new ArrayList<>();
 
         modules.add(new TodoModule(reactContext));
+        modules.add(new UserModule(reactContext));
 
         return modules;
     }

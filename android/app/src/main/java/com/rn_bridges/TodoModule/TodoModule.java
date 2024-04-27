@@ -54,7 +54,7 @@ public class TodoModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void fetchTodos() {
+    public void fetch() {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 

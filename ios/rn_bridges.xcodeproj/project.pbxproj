@@ -17,6 +17,8 @@
 		B910C1C32BD2155A0001BA44 /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B910C1C22BD2155A0001BA44 /* libswiftWebKit.tbd */; };
 		B93B0A4F2BD13A7900791946 /* TodoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B93B0A4E2BD13A7900791946 /* TodoModule.m */; };
 		B93B0A532BD13B2200791946 /* TodoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93B0A522BD13B2200791946 /* TodoModule.swift */; };
+		B93EEA7C2BDCD71F00E32000 /* UserModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EEA7B2BDCD71F00E32000 /* UserModule.swift */; };
+		B93EEA7E2BDCD75600E32000 /* UserModule.m in Sources */ = {isa = PBXBuildFile; fileRef = B93EEA7D2BDCD75600E32000 /* UserModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		B93B0A4E2BD13A7900791946 /* TodoModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoModule.m; sourceTree = "<group>"; };
 		B93B0A512BD13B2100791946 /* rn_bridges-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rn_bridges-Bridging-Header.h"; sourceTree = "<group>"; };
 		B93B0A522BD13B2200791946 /* TodoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModule.swift; sourceTree = "<group>"; };
+		B93EEA7B2BDCD71F00E32000 /* UserModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModule.swift; sourceTree = "<group>"; };
+		B93EEA7D2BDCD75600E32000 /* UserModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModule.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -151,6 +155,7 @@
 		B93B0A4C2BD13A4100791946 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B93EEA7A2BDCBDAB00E32000 /* User */,
 				B93B0A4D2BD13A4E00791946 /* Todo */,
 			);
 			name = Modules;
@@ -163,6 +168,15 @@
 				B93B0A522BD13B2200791946 /* TodoModule.swift */,
 			);
 			name = Todo;
+			sourceTree = "<group>";
+		};
+		B93EEA7A2BDCBDAB00E32000 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B93EEA7B2BDCD71F00E32000 /* UserModule.swift */,
+				B93EEA7D2BDCD75600E32000 /* UserModule.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -442,7 +456,9 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				B93EEA7C2BDCD71F00E32000 /* UserModule.swift in Sources */,
 				B93B0A4F2BD13A7900791946 /* TodoModule.m in Sources */,
+				B93EEA7E2BDCD75600E32000 /* UserModule.m in Sources */,
 				B93B0A532BD13B2200791946 /* TodoModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,6 @@
 
 @interface RCT_EXTERN_MODULE(TodoModule, RCTEventEmitter)
 
-RCT_EXTERN_METHOD(fetchTodos)
+RCT_EXTERN_METHOD(fetch)
 
 @end

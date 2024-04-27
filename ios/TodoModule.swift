@@ -10,8 +10,9 @@ import Foundation
 @objc(TodoModule)
 class TodoModule: RCTEventEmitter {
   
+  // Пример с ивентом.
   @objc
-  func fetchTodos() -> Void {
+  func fetch() -> Void {
     let urlString = "https://jsonplaceholder.typicode.com/todos"
     guard let url = URL(string: urlString) else {
       print("Invalid URL")

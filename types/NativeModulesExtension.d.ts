@@ -6,11 +6,16 @@ interface IEventListener {
 }
 
 interface ITodoModule extends IEventListener {
-  fetchTodos(): Promise<void>;
+  fetch(): Promise<void>;
+}
+
+interface IUserModule {
+  getUser(id: number): Promise<string>;
 }
 
 declare module 'react-native' {
   interface NativeModulesStatic {
     TodoModule: ITodoModule;
+    UserModule: IUserModule;
   }
 }

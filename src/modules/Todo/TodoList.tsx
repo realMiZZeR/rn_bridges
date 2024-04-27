@@ -3,6 +3,8 @@ import {
   NativeEventEmitter,
   NativeModules,
   SafeAreaView,
+  StyleSheet,
+  Text,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {ITodo} from './types/ITodo';
@@ -12,6 +14,7 @@ enum ETodoEvent {
   OnFetchSuccess = 'OnFetchSuccess',
 }
 
+// Компонент, извлекающий и выводящий список задач.
 export const TodoList = () => {
   const [todos, setTodos] = useState<ITodo[] | undefined>(undefined);
 
@@ -25,7 +28,7 @@ export const TodoList = () => {
       },
     );
 
-    NativeModules.TodoModule.fetchTodos();
+    NativeModules.TodoModule.fetch();
 
     return () => {
       onFetchSuccessListener.remove();
@@ -34,7 +37,27 @@ export const TodoList = () => {
 
   return (
     <SafeAreaView>
-      <FlatList data={todos} renderItem={({item}) => <TodoItem {...item} />} />
+      <Text style={styles.hintText}>
+        Представим, что это админка с тудушками
+      </Text>
+      <FlatList
+        data={todos}
+        renderItem={({item}) => (
+          <TodoItem todo={item} containerStyle={styles.flatListItem} />
+        )}
+      />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  hintText: {
+    color: '#a9a9a9',
+    textAlign: 'center',
+    marginBottom: 4,
+    fontSize: 12,
+  },
+  flatListItem: {
+    marginBottom: 6,
+  },
+});

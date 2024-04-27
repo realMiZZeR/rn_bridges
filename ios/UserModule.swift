@@ -13,7 +13,7 @@ class UserModule : NSObject {
   // Пример с async/await на стороне react-native.
   @objc
   func getUser(_ id: NSNumber, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
-    let urlString = "https://jsonplaceholder.typicode.com/users?id=\(id)"
+    let urlString = "https://jsonplaceholder.typicode.com/users/\(id)"
     guard let url = URL(string: urlString) else {
       let error = NSError(domain: "Invalid URL", code: -1, userInfo: nil)
       reject("USER_FETCH_ERROR", error.domain, error)

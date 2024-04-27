@@ -33,31 +33,35 @@ public class UserModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void getUser(Integer id, Promise promise) {
-        try {
-            String urlString = "https://jsonplaceholder.typicode.com/users/" + id;
-            URL url = new URL(urlString);
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setDoInput(true);
-            connection.connect();
+        executorService.execute(() -> {
+            try {
+                String urlString = "https://jsonplaceholder.typicode.com/users/" + id;
+                URL url = new URL(urlString);
 
-            int responseCode = connection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                String inputLine;
-                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                StringBuilder content = new StringBuilder();
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+                connection.setDoInput(true);
+                connection.connect();
 
-                while ((inputLine = in.readLine()) != null) {
-                    content.append(inputLine);
+                int responseCode = connection.getResponseCode();
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    String inputLine;
+                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    StringBuilder content = new StringBuilder();
+
+                    while ((inputLine = in.readLine()) != null) {
+                        content.append(inputLine);
+                    }
+                    in.close();
+
+                    final String result = content.toString();
+                    promise.resolve(result);
                 }
-                in.close();
-
-                final String result = content.toString();
-                promise.resolve(result);
+            } catch (Exception e) {
+                promise.resolve(e);
             }
-        } catch (Exception e) {
-            promise.resolve(e);
-        }
+        });
     }
 }

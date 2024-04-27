@@ -18,8 +18,8 @@ export const TodoItem = ({todo, containerStyle}: IProps) => {
   useEffect(() => {
     const fetchUser = async () => {
       const response = await NativeModules.UserModule.getUser(todo.userId);
-      const data = JSON.parse(response) as IUser[];
-      setUser(data[0]);
+      const data = JSON.parse(response) as IUser;
+      setUser(data);
     };
 
     fetchUser();
